@@ -2,17 +2,22 @@
 
 # Installation
 
-- [Download the .pkg file](https://swift.org/download/) and run it
-- In XCode preferences, under Locations, make sure something is selected for Command Line Tools
+- [Download latest XCode](https://developer.apple.com/download/) (warning: big download) and drag the uncompressed app into `Applications` directory, renaming it to avoid replacing your current Xcode install
+- [Download Swift for TensorFlow](https://github.com/tensorflow/swift/blob/master/Installation.md) and run installer
+- In XCode preferences:
+  - Under Locations, make sure latest Xcode is selected for Command Line Tools
+  - Under Components > Toolchains, select the installed Swift for TensorFlow toolchain
 - Add this to `~/.bash_profile`:
 
   ```
-  alias swift='TOOLCHAINS=swift PATH="/usr/bin:$PATH" swift'
+  alias swift='PATH="/Library/Developer/Toolchains/swift-latest/usr/bin:$PATH" swift'
   ```
 
-Note: Setting `TOOLCHAINS` forces the latest version of swift to be used, setting `PATH` forces the system version of Python to be used.
+Note: Setting `PATH` forces the latest version of swift to be used, as opposed to whatever version came with your Xcode installation.
 
 ## Commands
+
+Run program as script
 
 ```
 swift hello.swift
@@ -20,6 +25,7 @@ swift hello.swift
 
 ## Links
 
+- https://github.com/tensorflow/swift/blob/master/Installation.md
 - https://swift.org/getting-started/#installing-swift
 - https://forums.swift.org/t/swift-repl-doesnt-work/27485
 - https://forums.swift.org/t/swift-repl-starts-with-error-when-homebrew-python-is-installed/12927
