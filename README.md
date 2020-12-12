@@ -17,11 +17,13 @@ Note: Setting `PATH` forces the latest version of swift to be used, as opposed t
 
 ## Commands
 
-Run program as script
+Run program as script:
 
-```
-swift hello.swift
-```
+    swift hello.swift
+
+Generate `Music.h` header file useful for working with ScriptingBridge:
+
+    sdef /System/Applications/Music.app | sdp -fh --basename Music
 
 ## Links
 
@@ -29,3 +31,4 @@ swift hello.swift
 - https://swift.org/getting-started/#installing-swift
 - https://forums.swift.org/t/swift-repl-doesnt-work/27485
 - https://forums.swift.org/t/swift-repl-starts-with-error-when-homebrew-python-is-installed/12927
+- https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/UsingScriptingBridge/UsingScriptingBridge.html#//apple_ref/doc/uid/TP40006104-CH4-DontLinkElementID_12
