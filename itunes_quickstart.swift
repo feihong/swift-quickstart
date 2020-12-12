@@ -4,7 +4,10 @@ import ScriptingBridge
 @objc protocol iTunesTrack {
   @objc optional var name: String {get}
   @objc optional var album: String {get}
+  @objc optional var artist: String {get}
+  @objc optional var genre: String {get}
   @objc optional var lyrics: String {get}
+  @objc optional var comment: String {get}
 }
 
 @objc protocol iTunesApplication {
@@ -17,11 +20,12 @@ extension SBApplication : iTunesApplication {}
 if let app: iTunesApplication = SBApplication(bundleIdentifier: "com.apple.Music") {
   // Because these are all optional properties (to avoid providing an implementation), we have
   // to use '!' to indicate we know the implementation exists.
-  let track: iTunesTrack? = app.currentTrack!
-  let album = track?.album!
-  let trackName = track?.name!
-  let lyrics = track?.lyrics!
+  guard let track: iTunesTrack = app.currentTrack! else {
+    exit(1)
+  }
+  let trackName = track.name!
+  let lyrics = track.lyrics!.replacingOccurrences(of: "\r", with: "\n", options: .literal, range: nil)
 
-  print("Current track: \(String(describing: trackName)) - \(String(describing: album))")
-  print("Lyrics: \(String(describing: lyrics))")
+  print("Current track: \(trackName) by \(track.artist!)")
+  print("Lyrics:\n\(lyrics)")
 }
