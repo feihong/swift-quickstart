@@ -8,6 +8,8 @@ import ScriptingBridge
   @objc optional var genre: String {get}
   @objc optional var lyrics: String {get}
   @objc optional var comment: String {get}
+  @objc optional var dateAdded: Date {get}
+  @objc optional var modificationDate: Date {get}
 }
 
 @objc protocol iTunesApplication {
@@ -17,15 +19,21 @@ import ScriptingBridge
 
 extension SBApplication : iTunesApplication {}
 
-if let app: iTunesApplication = SBApplication(bundleIdentifier: "com.apple.Music") {
-  // Because these are all optional properties (to avoid providing an implementation), we have
-  // to use '!' to indicate we know the implementation exists.
-  guard let track: iTunesTrack = app.currentTrack! else {
-    exit(1)
-  }
-  let trackName = track.name!
-  let lyrics = track.lyrics!.replacingOccurrences(of: "\r", with: "\n", options: .literal, range: nil)
-
-  print("Current track: \(trackName) by \(track.artist!)")
-  print("Lyrics:\n\(lyrics)")
+guard let app: iTunesApplication = SBApplication(bundleIdentifier: "com.apple.Music") else {
+  print("Could not load Music app")
+  exit(1)
 }
+
+// Because these are all optional properties (to avoid providing an implementation), we have
+// to use '!' to indicate we know the implementation exists.
+guard let track: iTunesTrack = app.currentTrack! else {
+  print("No current track")
+  exit(1)
+}
+
+let lyrics = track.lyrics!.replacingOccurrences(of: "\r", with: "\n", options: .literal, range: nil)
+
+print("Current track: \(track.name!) by \(track.artist!)")
+print("Modified: \(track.modificationDate!), Added: \(track.dateAdded!)")
+print("Lyrics:\n\(lyrics)")
+
