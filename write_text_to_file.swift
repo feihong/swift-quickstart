@@ -1,3 +1,4 @@
+// Write some text to a file in the current directory
 import Foundation
 
 let directory = FileManager.default.currentDirectoryPath
