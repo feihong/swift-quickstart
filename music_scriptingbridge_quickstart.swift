@@ -11,6 +11,7 @@ import ScriptingBridge
   @objc optional var rating: Int { get }
   @objc optional var dateAdded: Date { get }
   @objc optional var modificationDate: Date { get }
+  @objc optional var location: URL { get }
 
   @objc optional var databaseID: Int { get }
   @objc optional func setRating(_ rating: Int)
@@ -36,6 +37,7 @@ guard let track: MusicTrack = app.currentTrack else {
 print("Current track: \(track.name!) by \(track.artist!), database ID: \(track.databaseID!)")
 print("Rating: \(track.rating! / 20) stars")
 print("Modified: \(track.modificationDate!), Added: \(track.dateAdded!)")
+print("Location: \(track.location!.path)")
 let lyrics = track.lyrics!.replacingOccurrences(of: "\r", with: "\n", options: .literal, range: nil)
 // print("Lyrics:\n\(lyrics)")
 
