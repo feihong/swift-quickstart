@@ -31,3 +31,4 @@ Create executable package:
 - https://forums.swift.org/t/swift-repl-starts-with-error-when-homebrew-python-is-installed/12927
 - https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/UsingScriptingBridge/UsingScriptingBridge.html#//apple_ref/doc/uid/TP40006104-CH4-DontLinkElementID_12
 - https://swift.org/getting-started/#package-manager
+- https://stackoverflow.com/questions/37994645/how-to-set-a-property-of-itunes-scriptingbridge-using-swift-protocols
