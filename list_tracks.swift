@@ -9,7 +9,6 @@ guard let app: MusicApplication = SBApplication(bundleIdentifier: "com.apple.Mus
 
 func getMusicPlaylist() -> MusicPlaylist? {
   for case let playlist as MusicPlaylist in app.playlists!() {
-    // let playlist = playlist as! MusicPlaylist
     if playlist.name! == "Music" {
       return playlist
     }  
@@ -22,6 +21,10 @@ guard let playlist = getMusicPlaylist() else {
   exit(1)
 }
 
+let tracks = playlist.tracks!()
+
 for case let track as MusicTrack in playlist.tracks!() {
   print(track.name!)
 }
+
+print("Found \(tracks.count) tracks")
