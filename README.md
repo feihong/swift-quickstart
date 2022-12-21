@@ -32,3 +32,4 @@ Create executable package:
 - https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ScriptingBridgeConcepts/UsingScriptingBridge/UsingScriptingBridge.html#//apple_ref/doc/uid/TP40006104-CH4-DontLinkElementID_12
 - https://swift.org/getting-started/#package-manager
 - https://stackoverflow.com/questions/37994645/how-to-set-a-property-of-itunes-scriptingbridge-using-swift-protocols
+- https://gist.github.com/jkelol111/5754a3d3f1d05df3434447b2714f38da
